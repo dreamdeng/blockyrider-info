@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Blocky Rider - The ultimate 3D blocky racing game! Drive through colorful cube worlds, climb hills, avoid obstacles, and become the best racer. Play free online now!">
+    <meta name="keywords" content="blocky rider, racing game, online game, 3D racing, cube racing, voxel game, free racing game, blocky car game, hill climbing game">
+    <meta name="author" content="Blocky Rider Game">
+    <meta property="og:title" content="Blocky Rider - Play Free 3D Blocky Racing Game Online">
+    <meta property="og:description" content="Experience the thrill of blocky racing! Drive through stunning cube worlds, conquer challenging hills, and become the ultimate rider. Play now!">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lovemoneygame.io/assets/blocky-rider-preview.jpg">
+    <title>Blocky Rider - Play Free 3D Blocky Racing Game Online | Drive & Conquer</title>
+    
+    <!-- Sitemap for SEO -->
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #ff6b35;
+            --secondary-color: #f7931e;
+            --accent-color: #4ecdc4;
+            --dark-bg: #1a1a2e;
+            --light-bg: #16213e;
+            --text-light: #ffffff;
+            --text-gray: #c5c6c7;
+            --success-color: #2ecc71;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(22, 33, 62, 0.95) 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff, var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge-icon {
+            font-size: 1.5rem;
+        }
+
+        /* Game Container */
+        .game-container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .game-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .game-frame {
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 15px;
+            background: #000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-controls {
+            margin-top: 1.5rem;
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+        }
+
+        .game-controls h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .control-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .control-key {
+            display: inline-block;
+            background: var(--gradient-1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Features Section */
+        .features {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(78, 205, 196, 0.3);
+            border-color: var(--accent-color);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Game Modes Section */
+        .game-modes {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .mode-card {
+            background: var(--gradient-1);
+            padding: 2.5rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .mode-card:nth-child(2) {
+            background: var(--gradient-2);
+        }
+
+        .mode-card:nth-child(3) {
+            background: var(--gradient-3);
+        }
+
+        .mode-card:hover {
+            transform: scale(1.05);
+        }
+
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .mode-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-card ul {
+            list-style: none;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mode-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .mode-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* How to Play Section */
+        .how-to-play {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .step:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .step h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tip-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            transition: all 0.3s;
+        }
+
+        .tip-card:hover {
+            background: rgba(78, 205, 196, 0.1);
+            transform: translateX(10px);
+        }
+
+        .tip-card h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .tip-card p {
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .faq-container {
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .faq-question:hover {
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .content-block {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .content-block h2 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .content-block h3 {
+            color: var(--primary-color);
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .content-block p {
+            color: var(--text-gray);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+        }
+
+        .content-block ul, .content-block ol {
+            color: var(--text-gray);
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-block li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            max-width: 1400px;
+            margin: 4rem auto;
+            padding: 4rem 2rem;
+            text-align: center;
+            background: var(--gradient-1);
+            border-radius: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 15s linear infinite;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--dark-bg);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--light-bg);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-light);
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .game-frame {
+                height: 500px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .modes-grid,
+            .features-grid,
+            .steps-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">🎮 Blocky Rider</a>
+            <ul class="nav-links">
+                <li><a href="#game">Play Now</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-to-play">How to Play</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="#game" class="cta-button">Play Free</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🏎️ Blocky Rider: Ultimate 3D Racing Adventure</h1>
+            <p class="hero-subtitle">Drive Through Stunning Cube Worlds, Conquer Hills & Become the Champion</p>
+            <div class="hero-badges">
+                <div class="badge">
+                    <span class="badge-icon">🎮</span>
+                    <span>100% Free to Play</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🌐</span>
+                    <span>Play Online - No Download</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">⚡</span>
+                    <span>Instant Action</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🏆</span>
+                    <span>Challenging Levels</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Container -->
+    <section id="game" class="game-container">
+        <div class="game-wrapper">
+            <iframe 
+                src="https://lovemoneygame.io/blocky-rider.embed" 
+                class="game-frame"
+                allowfullscreen
+                title="Play Blocky Rider Game Online - Free 3D Racing Game"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+            </iframe>
+            
+            <div class="game-controls">
+                <h3>🎮 Game Controls</h3>
+                <div class="controls-grid">
+                    <div class="control-item">
+                        <div class="control-key">↑ Arrow / W</div>
+                        <p>Accelerate Forward</p>
+                    </div>
+                    <div class="control-item">
+                        <div class="control-key">↓ Arrow / S</div>
+                        <p>Brake / Reverse</p>
+                    </div>
+                    <div class="control-item">
+                        <div class="control-key">← Arrow / A</div>
+                        <p>Steer Left</p>
+                    </div>
+                    <div class="control-item">
+                        <div class="control-key">→ Arrow / D</div>
+                        <p>Steer Right</p>
+                    </div>
+                    <div class="control-item">
+                        <div class="control-key">Space</div>
+                        <p>Handbrake</p>
+                    </div>
+                    <div class="control-item">
+                        <div class="control-key">R</div>
+                        <p>Restart Level</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features fade-in">
+        <h2 class="section-title">🌟 Why Play Blocky Rider?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">🎨</span>
+                <h3>Stunning Low-Poly Graphics</h3>
+                <p>Immerse yourself in a beautifully crafted blocky world with vibrant colors, smooth voxel graphics, and charming pixel art aesthetic that brings nostalgic arcade vibes to modern gaming.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🚗</span>
+                <h3>Realistic Physics Engine</h3>
+                <p>Experience true-to-life vehicle physics with realistic weight distribution, momentum handling, and responsive controls that make every race feel authentic and thrilling.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏔️</span>
+                <h3>Diverse Environments</h3>
+                <p>Explore green hills, steep mountains, desert dunes, snowy peaks, and bustling cities. Each environment offers unique challenges and breathtaking scenery.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🏎️</span>
+                <h3>Multiple Vehicles</h3>
+                <p>Unlock and drive various blocky vehicles including sports cars, monster trucks, motorcycles, and custom-built machines. Each vehicle has unique handling characteristics.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🎯</span>
+                <h3>Challenging Levels</h3>
+                <p>Test your driving skills across dozens of hand-crafted levels with increasing difficulty. Master tight turns, massive jumps, and treacherous obstacles.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🪙</span>
+                <h3>Collect & Upgrade</h3>
+                <p>Gather gold coins scattered throughout levels to unlock new vehicles, upgrade your rides, and access special abilities that enhance your racing performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modes Section -->
+    <section class="game-modes fade-in">
+        <h2 class="section-title">🎮 Exciting Game Modes</h2>
+        <div class="modes-grid">
+            <div class="mode-card">
+                <h3>⚡ Race Mode</h3>
+                <p>Experience endless high-speed racing action! Drive as fast as you can while avoiding obstacles and traffic.</p>
+                <ul>
+                    <li>Endless racing challenges</li>
+                    <li>Dodge buses, taxis, and trains</li>
+                    <li>Collect speed bonuses</li>
+                    <li>Achieve high scores</li>
+                    <li>Beat your personal records</li>
+                </ul>
+            </div>
+            <div class="mode-card">
+                <h3>💥 Demolition Mode</h3>
+                <p>Unleash chaos! Smash into as many vehicles as possible within the time limit and create epic destruction.</p>
+                <ul>
+                    <li>Timed destruction challenges</li>
+                    <li>Explosive collisions</li>
+                    <li>Combo multipliers</li>
+                    <li>Maximum carnage scoring</li>
+                    <li>Unlock special vehicles</li>
+                </ul>
+            </div>
+            <div class="mode-card">
+                <h3>🌆 City Mode</h3>
+                <p>Explore freely in an open-world city environment. Discover hidden areas, complete time trials, and enjoy relaxed driving.</p>
+                <ul>
+                    <li>Open world exploration</li>
+                    <li>Time trial challenges</li>
+                    <li>Hidden collectibles</li>
+                    <li>Airport with planes</li>
+                    <li>No crash penalties</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Play Section -->
+    <section id="how-to-play" class="how-to-play fade-in">
+        <h2 class="section-title">📖 How to Play Blocky Rider</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Choose Your Vehicle</h3>
+                <p>Select from a variety of blocky cars and motorcycles. Start with basic vehicles and unlock powerful machines as you progress.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Select Game Mode</h3>
+                <p>Pick your preferred mode: Race for high scores, Demolition for destruction, or City for free exploration.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Master Controls</h3>
+                <p>Use arrow keys or WASD to drive, Space for handbrake, and master the physics to navigate challenging terrain.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Collect Coins</h3>
+                <p>Gather golden coins scattered throughout levels to increase your score and unlock new vehicles and upgrades.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">5</div>
+                <h3>Avoid Obstacles</h3>
+                <p>Watch out for traffic, trains, roadblocks, and environmental hazards. Time your movements carefully to survive.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">6</div>
+                <h3>Complete Challenges</h3>
+                <p>Finish levels, beat time trials, achieve high scores, and unlock achievements to become the ultimate blocky rider.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section fade-in">
+        <h2 class="section-title">💡 Pro Tips & Strategies</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <h4>🚀 Speed Management</h4>
+                <p>Don't always drive at maximum speed. Slow down before sharp turns and when approaching obstacles like trains. Strategic speed control is key to survival.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🎯 Coin Collection</h4>
+                <p>Prioritize collecting golden coins - they significantly boost your score and unlock new content. Plan your route to maximize coin collection.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🛣️ Learn the Tracks</h4>
+                <p>Memorize obstacle patterns and traffic flow. Each track has predictable elements you can learn to anticipate and navigate efficiently.</p>
+            </div>
+            <div class="tip-card">
+                <h4>⚡ Use Boost Wisely</h4>
+                <p>Save your nitro boost for straightaways and when you need to avoid sudden obstacles. Don't waste boost on curves or crowded areas.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🎮 Master Handbrake</h4>
+                <p>The handbrake is essential for tight turns and drift maneuvers. Practice using it to navigate sharp corners without losing momentum.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🏆 Complete Achievements</h4>
+                <p>Focus on completing achievements and challenges. They reward you with exclusive vehicles and unlock special features.</p>
+            </div>
+            <div class="tip-card">
+                <h4>🚗 Vehicle Selection</h4>
+                <p>Different vehicles handle differently. Experiment to find which suits your play style - some are faster, others more stable.</p>
+            </div>
+            <div class="tip-card">
+                <h4>👀 Watch Ahead</h4>
+                <p>Keep your eyes on the road ahead, not just your immediate surroundings. Anticipate obstacles early to react in time.</p>
+            </div>
+            <div class="tip-card">
+                <h4>💥 Demolition Strategy</h4>
+                <p>In Demolition mode, hit vehicles from the side for maximum damage while maintaining speed. Avoid head-on collisions.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section fade-in">
+        <h2 class="section-title">❓ Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is Blocky Rider?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Blocky Rider is an exciting 3D racing game featuring charming low-poly, blocky graphics reminiscent of voxel art and Minecraft aesthetics. Players drive various vehicles through colorful cube worlds, navigating challenging terrain, collecting coins, and competing for high scores across multiple game modes.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is Blocky Rider free to play?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Yes! Blocky Rider is completely free to play online. You don't need to download anything or create an account. Simply load the game in your browser and start playing immediately. The game offers optional in-game purchases for those who want to unlock content faster.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need to download Blocky Rider?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    No download required! Blocky Rider runs directly in your web browser. This means you can play instantly on any device with internet access - desktop computers, laptops, tablets, and even mobile phones. Just visit the page and click play!
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What devices can I play Blocky Rider on?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Blocky Rider is compatible with all modern devices including Windows PC, Mac, Linux, Android phones and tablets, iPhones, and iPads. The game automatically adjusts to your screen size and control scheme for optimal gameplay experience.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I control the vehicle in Blocky Rider?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    On desktop, use Arrow Keys or WASD to steer and accelerate. Space bar activates the handbrake for drifting, and R restarts the level. On mobile devices, use on-screen touch controls. The game supports both tilt and touch control schemes on mobile.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What are the different game modes in Blocky Rider?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Blocky Rider features three distinct modes: Race Mode for endless high-speed challenges where you avoid obstacles, Demolition Mode where you cause maximum destruction by crashing into vehicles, and City Mode for free-roam exploration without crash penalties.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I unlock new vehicles?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Unlock new vehicles by collecting gold coins during gameplay, achieving high scores, completing specific challenges and achievements, or through playtime progression. Each vehicle has unique handling characteristics and speed capabilities.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I play Blocky Rider offline?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Blocky Rider requires an internet connection to load initially. However, once loaded, the game can continue running even if your connection temporarily drops. For the best experience, we recommend playing with a stable internet connection.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are there multiplayer features?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Currently, Blocky Rider focuses on single-player gameplay with global leaderboards where you can compete against other players' high scores. Each mode tracks your best performances and compares them with players worldwide.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What makes Blocky Rider different from other racing games?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    Blocky Rider combines charming voxel aesthetics with realistic physics, offering a unique blend of casual accessibility and challenging gameplay. The low-poly art style, multiple game modes, and emphasis on both speed and strategy set it apart from traditional racing games.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Section -->
+    <section class="seo-content fade-in">
+        <div class="content-block">
+            <h2>About Blocky Rider: The Ultimate 3D Blocky Racing Experience</h2>
+            <p>
+                Welcome to <strong>Blocky Rider</strong>, the premier online racing game that combines stunning low-poly graphics with heart-pounding racing action. Developed by Tellurion Mobile, Blocky Rider has captured the hearts of racing enthusiasts worldwide with its unique blend of charming voxel aesthetics and realistic physics-based gameplay.
+            </p>
+            
+            <h3>What Makes Blocky Rider Special?</h3>
+            <p>
+                Blocky Rider stands out in the crowded racing game market with its distinctive visual style reminiscent of popular voxel-based games like Minecraft, combined with sophisticated racing mechanics. The game features beautifully crafted cube worlds where every element - from vehicles to environments - is rendered in an appealing blocky style that's both nostalgic and modern.
+            </p>
+            
+            <h3>Gameplay Features and Mechanics</h3>
+            <p>
+                At its core, Blocky Rider offers three distinct gameplay experiences through its multiple game modes. The <strong>Race Mode</strong> challenges players to drive endlessly while dodging traffic, trains, and obstacles, testing reflexes and strategic thinking. <strong>Demolition Mode</strong> flips the script, encouraging players to cause maximum destruction within time limits. Finally, <strong>City Mode</strong> provides a relaxing open-world environment for exploration and time trials.
+            </p>
+            
+            <h3>Physics and Controls</h3>
+            <p>
+                The game features a sophisticated physics engine that accurately simulates vehicle weight, momentum, and environmental interactions. Players must master acceleration, braking, steering, and handbrake drifting to navigate the challenging terrain successfully. The controls are intuitive yet deep, offering both casual accessibility and skill-based mastery potential.
+            </p>
+            
+            <h3>Vehicles and Customization</h3>
+            <p>
+                Blocky Rider boasts an impressive collection of vehicles including sports cars, muscle cars, monster trucks, motorcycles, and custom-built machines. Each vehicle handles differently, with unique speed, acceleration, and handling characteristics. Players unlock new vehicles by collecting coins, completing achievements, and progressing through the game's challenges.
+            </p>
+            
+            <h3>Environments and Level Design</h3>
+            <p>
+                The game takes players through diverse environments including verdant green hills, snow-covered mountain peaks, scorching desert dunes, bustling city streets, and even airports complete with taxiing planes. Each environment presents unique challenges with varied terrain, obstacles, and visual themes that keep gameplay fresh and engaging.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Why Blocky Rider is Perfect for All Players</h2>
+            
+            <h3>Accessibility Meets Challenge</h3>
+            <p>
+                One of Blocky Rider's greatest strengths is its universal appeal. The game is easy enough for casual players to pick up and enjoy immediately, with simple controls and forgiving early levels. However, mastering the advanced techniques, achieving top scores, and unlocking all content provides substantial challenges for dedicated gamers.
+            </p>
+            
+            <h3>No Download Required</h3>
+            <p>
+                In today's fast-paced world, convenience matters. Blocky Rider runs entirely in your web browser without requiring any downloads, installations, or system configurations. This means instant gameplay across all devices - from powerful gaming PCs to mobile phones. Simply load the page and start racing within seconds.
+            </p>
+            
+            <h3>Family-Friendly Entertainment</h3>
+            <p>
+                The game's charming blocky aesthetic, non-violent gameplay (even in Demolition mode, vehicles simply disappear in a cartoonish fashion), and intuitive mechanics make it suitable for players of all ages. Parents can confidently let children play while older gamers appreciate the nostalgic pixel art style and challenging gameplay.
+            </p>
+            
+            <h3>Regular Updates and Community</h3>
+            <p>
+                The development team regularly updates Blocky Rider with new vehicles, levels, challenges, and features based on community feedback. An active player community shares strategies, achievements, and racing tips, making the game more engaging through social interaction and competitive leaderboards.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Tips for Mastering Blocky Rider</h2>
+            
+            <h3>Beginner Strategies</h3>
+            <p>
+                New players should start with Race Mode on lower difficulty levels to familiarize themselves with vehicle physics and controls. Focus on maintaining steady speed rather than constant maximum velocity - knowing when to slow down is crucial for long-term survival. Collect every coin possible as they unlock better vehicles faster.
+            </p>
+            
+            <h3>Advanced Techniques</h3>
+            <p>
+                Experienced players should master the handbrake drift technique for navigating sharp corners without losing momentum. Learn to anticipate traffic patterns and obstacle spawns to plan routes ahead. In Demolition Mode, target vehicle sides for maximum damage while maintaining speed. Utilize nitro boosts strategically on straightaways rather than in congested areas.
+            </p>
+            
+            <h3>Vehicle Selection Strategy</h3>
+            <p>
+                Different vehicles excel in different scenarios. Sports cars offer maximum speed for Race Mode, monster trucks provide stability for rough terrain, and motorcycles excel in tight spaces and quick maneuvers. Experiment with each vehicle type to understand their strengths and match them to specific challenges and your personal play style.
+            </p>
+            
+            <h3>Achievement Hunting</h3>
+            <p>
+                Completing achievements rewards players with exclusive vehicles and special abilities. Focus on achievement requirements that align with your natural gameplay style first, then branch out to more challenging objectives. Some achievements require specific vehicles or game modes, so plan accordingly.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>The Technology Behind Blocky Rider</h2>
+            
+            <h3>Graphics Engine</h3>
+            <p>
+                Blocky Rider utilizes advanced WebGL technology to render stunning 3D graphics directly in browsers without plugins. The low-poly art style isn't just aesthetically pleasing - it's optimized for smooth performance across devices from budget smartphones to high-end gaming PCs. The voxel-based rendering ensures consistent 60 FPS gameplay even on older hardware.
+            </p>
+            
+            <h3>Physics Simulation</h3>
+            <p>
+                The game employs a sophisticated physics engine that calculates realistic vehicle dynamics including weight distribution, suspension behavior, tire friction, and collision detection. This creates authentic driving sensations where player skill directly translates to performance, rewarding precise control and strategic decision-making.
+            </p>
+            
+            <h3>Cross-Platform Compatibility</h3>
+            <p>
+                Built on modern web standards, Blocky Rider runs seamlessly across operating systems and devices. The responsive design automatically adapts interface elements and control schemes whether you're playing on desktop with keyboard, laptop with trackpad, or mobile device with touchscreen.
+            </p>
+        </div>
+
+        <div class="content-block">
+            <h2>Join the Blocky Rider Community</h2>
+            <p>
+                Millions of players worldwide have discovered the joy of Blocky Rider. Join the thriving community of racing enthusiasts who share strategies, compete on leaderboards, and celebrate achievements together. Whether you're seeking casual entertainment or competitive challenge, Blocky Rider delivers an unforgettable racing experience that keeps you coming back for more.
+            </p>
+            <p>
+                Start your blocky racing adventure today - no downloads, no waiting, just pure racing action at your fingertips. Master the controls, unlock legendary vehicles, conquer challenging terrains, and prove yourself as the ultimate Blocky Rider champion!
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section fade-in">
+        <div class="cta-content">
+            <h2>🏆 Ready to Become a Champion?</h2>
+            <p>Join millions of players worldwide and start your blocky racing adventure today!</p>
+            <div class="cta-buttons">
+                <a href="#game" class="cta-btn">Play Now - It's Free!</a>
+                <a href="#features" class="cta-btn secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Blocky Rider</h3>
+                <p>Blocky Rider is a free online 3D racing game featuring stunning low-poly graphics and thrilling gameplay. Drive through colorful cube worlds and become the ultimate racing champion!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#game">Play Game</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-to-play">How to Play</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Game Modes</h3>
+                <ul>
+                    <li><a href="#game">Race Mode</a></li>
+                    <li><a href="#game">Demolition Mode</a></li>
+                    <li><a href="#game">City Mode</a></li>
+                    <li><a href="#game">Time Trials</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#tips">Tips & Tricks</a></li>
+                    <li><a href="#vehicles">Vehicle Guide</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#leaderboards">Leaderboards</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Blocky Rider. All rights reserved. Play responsibly and enjoy the ride!</p>
+            <p>Tags: blocky rider game, 3D racing game, online car game, voxel racing, low poly game, free racing game, cube world racing, hill climbing game, blocky car racing, pixel racing game</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const answer = item.querySelector('.faq-answer');
+                const toggle = question.querySelector('.faq-toggle');
+                
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+                document.querySelectorAll('.faq-toggle').forEach(t => t.textContent = '+');
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    toggle.textContent = '−';
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Preload game iframe on page load for faster interaction
+        window.addEventListener('load', () => {
+            console.log('Blocky Rider page loaded successfully');
+        });
+    </script>
+</body>
+</html>
